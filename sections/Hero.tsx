@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Header from "@/components/Header";
 
 type HeroProps = {
   rolefirstname: string;
@@ -22,6 +23,7 @@ export default function Hero({
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center">
+      <Header name="Sudeepa Nisal" role="Software Engineer" />
       <motion.div
         className="absolute top-0 left-0 w-full h-full"
         onMouseEnter={() => setHovered(true)}
