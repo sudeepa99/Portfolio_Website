@@ -10,6 +10,8 @@ type HeroProps = {
   rolesecondname: string;
   description: string;
   buttontext: string;
+  showText: boolean;
+  onToggleText: (show: boolean) => void;
 };
 
 export default function Hero({
@@ -17,23 +19,33 @@ export default function Hero({
   rolesecondname,
   description,
   buttontext,
+  showText,
+  onToggleText,
 }: HeroProps) {
   const [hovered, setHovered] = useState(false);
   const [buttonTextHovered, setButtonTextHovered] = useState(false);
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center">
-      <Header name="Sudeepa Nisal" role="Software Engineer" />
+      <Header
+        name="Sudeepa Nisal"
+        role="Software Engineer"
+        onToggleText={onToggleText}
+      />
       <motion.div
         className="absolute top-0 left-0 w-full h-full"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         animate={{
-          scale: hovered ? 0.9 : 1,
-          rotate: hovered ? 2 : 0,
-          borderRadius: hovered ? "20%" : "0%",
+          scale: hovered ? 0.9 : showText ? 1 : 1.08,
+          rotate: hovered ? 2 : showText ? 0 : -1,
+          filter: showText ? "grayscale(0%)" : "grayscale(40%)",
         }}
-        transition={{ type: "spring", stiffness: 50, damping: 10 }}
+        transition={{
+          scale: { type: "spring", stiffness: 50, damping: 10 },
+          rotate: { type: "spring", stiffness: 40 },
+          filter: { duration: 0.4 },
+        }}
       >
         <Image
           src="/hero.jpg"
@@ -42,48 +54,49 @@ export default function Hero({
           className="object-cover"
         />
       </motion.div>
+      {showText && (
+        <div className="relative z-10 w-full px-4">
+          <div className="grid grid-cols-2 items-start">
+            <div className="text-left">
+              <h1 className="text-9xl font-bold leading-none text-slate-900 tracking-tighter">
+                <span className="block">{rolefirstname}</span>
+                <span className="block">{rolesecondname}</span>
+              </h1>
+            </div>
 
-      <div className="relative z-10 w-full px-4">
-        <div className="grid grid-cols-2 items-start">
-          <div className="text-left">
-            <h1 className="text-9xl font-bold leading-none text-slate-900 tracking-tighter">
-              <span className="block">{rolefirstname}</span>
-              <span className="block">{rolesecondname}</span>
-            </h1>
-          </div>
+            <div className="text-left flex flex-col items-end  font-semibold mt-[8%] ml-auto ">
+              <p className="text-2xl max-w-md mb-6 text-slate-700  ">
+                {description}
+              </p>
 
-          <div className="text-left flex flex-col items-end font-semibold mt-[8%] ml-auto ">
-            <p className="text-2xl max-w-md mb-6 text-slate-700  ">
-              {description}
-            </p>
-
-            <button
-              onMouseEnter={() => setButtonTextHovered(true)}
-              onMouseLeave={() => setButtonTextHovered(false)}
-              className=" text-xl relative overflow-hidden bg-black px-6 py-3 rounded-lg w-fit"
-            >
-              <motion.span
-                className="block text-white whitespace-nowrap"
-                animate={
-                  buttonTextHovered ? { x: ["0%", "-100%"] } : { x: "0%" }
-                }
-                transition={
-                  buttonTextHovered
-                    ? {
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        duration: 2.5,
-                        ease: "linear",
-                      }
-                    : { duration: 0.2 }
-                }
+              <button
+                onMouseEnter={() => setButtonTextHovered(true)}
+                onMouseLeave={() => setButtonTextHovered(false)}
+                className=" text-xl relative overflow-hidden bg-black px-6 py-3 rounded-lg w-fit"
               >
-                {buttontext}
-              </motion.span>
-            </button>
+                <motion.span
+                  className="block text-white whitespace-nowrap"
+                  animate={
+                    buttonTextHovered ? { x: ["0%", "-100%"] } : { x: "0%" }
+                  }
+                  transition={
+                    buttonTextHovered
+                      ? {
+                          repeat: Infinity,
+                          repeatType: "loop",
+                          duration: 2.5,
+                          ease: "linear",
+                        }
+                      : { duration: 0.2 }
+                  }
+                >
+                  {buttontext}
+                </motion.span>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
