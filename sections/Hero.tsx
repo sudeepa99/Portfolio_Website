@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Header from "@/components/Header";
 
 type HeroProps = {
   rolefirstname: string;
@@ -11,7 +10,6 @@ type HeroProps = {
   description: string;
   buttontext: string;
   showText: boolean;
-  onToggleText: (show: boolean) => void;
 };
 
 export default function Hero({
@@ -20,31 +18,25 @@ export default function Hero({
   description,
   buttontext,
   showText,
-  onToggleText,
 }: HeroProps) {
   const [hovered, setHovered] = useState(false);
   const [buttonTextHovered, setButtonTextHovered] = useState(false);
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center">
-      <Header
-        name="Sudeepa Nisal"
-        role="Software Engineer"
-        onToggleText={onToggleText}
-      />
       <motion.div
         className="absolute top-0 left-0 w-full h-full"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         animate={{
           scale: hovered ? 0.9 : showText ? 1 : 1.08,
-          rotate: hovered ? 2 : showText ? 0 : -1,
-          filter: showText ? "grayscale(0%)" : "grayscale(40%)",
+          rotate: hovered ? 2 : [-1, 1, -0.5, 0, 0.5, -0.5],
+          y: hovered ? 0 : [0, -5, 5, -3, 3, 0],
         }}
         transition={{
           scale: { type: "spring", stiffness: 50, damping: 10 },
-          rotate: { type: "spring", stiffness: 40 },
-          filter: { duration: 0.4 },
+          rotate: { repeat: Infinity, duration: 20, ease: "easeInOut" },
+          y: { repeat: Infinity, duration: 15, ease: "easeInOut" },
         }}
       >
         <Image
