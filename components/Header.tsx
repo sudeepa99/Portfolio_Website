@@ -16,7 +16,6 @@ export default function Header({ name, role, onToggleText }: HeaderProps) {
     setIsOpen((prev) => {
       const willOpen = !prev;
 
-      // hide hero text when menu opens
       onToggleText?.(!willOpen);
 
       return willOpen;
@@ -25,8 +24,8 @@ export default function Header({ name, role, onToggleText }: HeaderProps) {
 
   return (
     <>
-      <header className="absolute top-0 left-0 w-full z-20 px-8 pt-6">
-        <div className="flex items-center justify-between text-slate-700">
+      <header className="fixed top-0 left-0 w-full z-50 pointer-events-auto px-8 pt-6">
+        <div className="flex items-center justify-between text-amber-800">
           <div className="flex flex-1 gap-2">
             <h1 className="text-lg font-semibold font-serif">{name}</h1>
             <p className="text-lg font-semibold uppercase">{role}</p>

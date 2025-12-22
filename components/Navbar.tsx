@@ -30,6 +30,14 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
     },
   };
 
+  const handleNavigate = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    onClose();
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -48,14 +56,17 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
 
           <nav className="flex flex-col gap-8 mt-12 text-xl font-medium">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link}
-                href={`#${link.replace(/\s+/g, "").toLowerCase()}`}
-                className="hover:text-stone-500 transition-colors text-2xl"
-                onClick={onClose}
+                onClick={() =>
+                  handleNavigate(
+                    link.toLowerCase().replace(" ", "").replace("me", "")
+                  )
+                }
+                className="hover:text-stone-500 transition-colors text-2xl text-left"
               >
                 {link}
-              </a>
+              </button>
             ))}
           </nav>
 

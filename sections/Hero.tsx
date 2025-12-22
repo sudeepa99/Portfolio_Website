@@ -23,19 +23,22 @@ export default function Hero({
   const [buttonTextHovered, setButtonTextHovered] = useState(false);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center">
+    <section
+      id="home"
+      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center"
+    >
       <motion.div
         className="absolute top-0 left-0 w-full h-full"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         animate={{
-          scale: hovered ? 0.9 : showText ? 1 : 1.08,
-          rotate: hovered ? 2 : [-1, 1, -0.5, 0, 0.5, -0.5],
+          // scale: hovered ? 0.9 : showText ? 1 : 1.08,
+          // rotate: hovered ? 2 : [-1, 1, -0.5, 0, 0.5, -0.5],
           y: hovered ? 0 : [0, -5, 5, -3, 3, 0],
         }}
         transition={{
           scale: { type: "spring", stiffness: 50, damping: 10 },
-          rotate: { repeat: Infinity, duration: 20, ease: "easeInOut" },
+          // rotate: { repeat: Infinity, duration: 20, ease: "easeInOut" },
           y: { repeat: Infinity, duration: 15, ease: "easeInOut" },
         }}
       >
