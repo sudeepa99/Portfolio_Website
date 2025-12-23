@@ -52,21 +52,21 @@ function Model({ modelPath }: ModelProps) {
               m instanceof THREE.MeshStandardMaterial ||
               m instanceof THREE.MeshPhysicalMaterial
             ) {
-              m.color = new THREE.Color("#2b2b2b");
-              m.roughness = 0.65;
-              m.metalness = 0.05;
+              m.color = new THREE.Color("#f5f5f0");
+              m.roughness = 0.4;
+              m.metalness = 0.1;
             }
           });
         } else if (
           mat instanceof THREE.MeshStandardMaterial ||
           mat instanceof THREE.MeshPhysicalMaterial
         ) {
-          mat.color = new THREE.Color("#2b2b2b");
-          mat.roughness = 0.65;
-          mat.metalness = 0.05;
+          mat.color = new THREE.Color("#f5f5f0");
+          mat.roughness = 0.4;
+          mat.metalness = 0.1;
         } else {
           mesh.material = new THREE.MeshStandardMaterial({
-            color: "#2b2b2b",
+            color: "#f5f5f0",
             roughness: 0.65,
             metalness: 0.05,
           });
