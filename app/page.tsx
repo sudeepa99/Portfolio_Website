@@ -1,6 +1,7 @@
 "use client";
 
 import AboutMe from "@/sections/AboutMe";
+import Contact from "@/sections/Contact";
 import Hero from "@/sections/Hero";
 import Projects from "@/sections/Projects";
 import { useState } from "react";
@@ -24,6 +25,7 @@ export default function Home() {
         statuename="Micahealangelo's David"
       />
       <Projects />
+      <Contact />
     </>
   );
 }
