@@ -2,6 +2,7 @@
 
 import AboutMe from "@/sections/AboutMe";
 import Hero from "@/sections/Hero";
+import Projects from "@/sections/Projects";
 import { useState } from "react";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         caption="Actually this is not me"
         statuename="Micahealangelo's David"
       />
+      <Projects />
     </>
   );
 }
