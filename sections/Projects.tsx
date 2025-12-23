@@ -1,7 +1,13 @@
+"use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
+
 import { ProjectCard } from "@/components/ProjectCard";
 import { projectsData } from "@/data/projects";
 
 export default function Projects() {
+  const [buttonTextHovered, setButtonTextHovered] = useState(false);
+
   return (
     <section
       id="projects"
@@ -53,6 +59,36 @@ export default function Projects() {
               )}
             </div>
           )}
+        </div>
+        <div className="mt-12 text-center">
+          <button
+            className=" p-3 rounded-xl bg-white text-black text-xl font-bold text-center uppercase"
+            onClick={() =>
+              window.open(
+                "https://github.com/sudeepa99?tab=repositories",
+                "_blank"
+              )
+            }
+            onMouseEnter={() => setButtonTextHovered(true)}
+            onMouseLeave={() => setButtonTextHovered(false)}
+          >
+            <motion.span
+              className="block text-black whitespace-nowrap"
+              animate={buttonTextHovered ? { x: ["0%", "-100%"] } : { x: "0%" }}
+              transition={
+                buttonTextHovered
+                  ? {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 2.5,
+                      ease: "linear",
+                    }
+                  : { duration: 0.2 }
+              }
+            >
+              See Other Cases
+            </motion.span>{" "}
+          </button>
         </div>
       </div>
     </section>
