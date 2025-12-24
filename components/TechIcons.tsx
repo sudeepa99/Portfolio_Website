@@ -71,12 +71,13 @@ export const TechIcon = ({ name, color }: { name: string; color: string }) => {
       </svg>
     ),
     nextjs: (
-      <svg {...iconProps} viewBox="0 0 48 48">
+      <svg {...iconProps} viewBox="0 0 128 128">
         <path
-          fill="#fff"
-          d="M24,2C12,2,2,12,2,24s10,22,22,22s22-10,22-22S36,2,24,2z M35.7,35.7L18.5,13H22v22l13.7-15.4C37.2,22.5,38,25.2,38,28C38,32.5,37.1,34.6,35.7,35.7z"
+          fill="#000"
+          d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0z"
         />
-        <path fill="#000" d="M26,13h4v22h-4V13z" />
+        <path fill="#fff" d="M35 38h12l28 52h-12L35 38z" />
+        <path fill="#fff" d="M65 38h12v52H65z" />
       </svg>
     ),
     java: (

@@ -13,7 +13,6 @@ function Model({ modelPath }: ModelProps) {
   const { scene } = useGLTF(modelPath);
   const ref = useRef<THREE.Group>(null);
 
-  // Auto rotate
   useFrame(() => {
     if (ref.current) {
       ref.current.rotation.y += 0.002;
