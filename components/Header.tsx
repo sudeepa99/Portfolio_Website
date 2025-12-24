@@ -1,53 +1,13 @@
 "use client";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
+import Navbar from "./Navbar";
 
 type HeaderProps = {
   name: string;
   role: string;
   onToggleText?: (show: boolean) => void;
 };
-
-function Navbar({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center">
-      <button
-        onClick={onClose}
-        className="absolute top-8 right-8 text-white hover:text-amber-500 transition-colors"
-      >
-        <X size={32} />
-      </button>
-      <nav className="text-white text-center space-y-8">
-        <a
-          href="#home"
-          className="block text-4xl font-bold hover:text-amber-500 transition-colors"
-        >
-          Home
-        </a>
-        <a
-          href="#about"
-          className="block text-4xl font-bold hover:text-amber-500 transition-colors"
-        >
-          About
-        </a>
-        <a
-          href="#projects"
-          className="block text-4xl font-bold hover:text-amber-500 transition-colors"
-        >
-          Projects
-        </a>
-        <a
-          href="#contact"
-          className="block text-4xl font-bold hover:text-amber-500 transition-colors"
-        >
-          Contact
-        </a>
-      </nav>
-    </div>
-  );
-}
 
 export default function Header({ name, role, onToggleText }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);

@@ -15,6 +15,7 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
   const navLinks = [
     { label: "Home", id: "home" },
     { label: "About", id: "about" },
+    { label: "Skills", id: "skills" },
     { label: "Projects", id: "projects" },
     { label: "Contact", id: "contact" },
   ];
@@ -37,7 +38,6 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
     },
   ];
 
-  // Track active section based on scroll position
   useEffect(() => {
     if (!isOpen) return;
 
@@ -114,7 +114,6 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop Overlay */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -124,7 +123,6 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
           />
 
-          {/* Menu Panel */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -132,7 +130,6 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
             variants={menuVariants}
             className="fixed top-0 right-0 h-full bg-linear-to-br from-black via-gray-900 to-black w-full sm:w-112.5 lg:w-125 z-50 flex flex-col p-8 sm:p-12 text-white overflow-y-auto"
           >
-            {/* Close Button */}
             <div className="flex justify-end mb-16">
               <button
                 onClick={onClose}
@@ -146,7 +143,6 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
               </button>
             </div>
 
-            {/* Navigation Links */}
             <nav className="flex-1 flex flex-col justify-center gap-2 -mt-16">
               {navLinks.map((link, index) => {
                 const isActive = activeSection === link.id;
@@ -161,13 +157,11 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
                     onClick={() => handleNavigate(link.id)}
                     className="group relative text-left py-4 overflow-hidden"
                   >
-                    {/* Hover Background */}
                     <span className="absolute inset-0 bg-white/5 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out rounded-lg" />
 
-                    {/* Link Text */}
                     <span
                       className={`
-                      relative block text-5xl sm:text-6xl font-bold tracking-tight transition-all duration-300
+                      relative block text-3xl sm:text-4xl font-bold tracking-tight transition-all duration-300
                       ${
                         isActive
                           ? "text-amber-500"
@@ -178,7 +172,6 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
                       {link.label}
                     </span>
 
-                    {/* Underline Animation */}
                     <span
                       className={`
                       absolute bottom-2 left-0 h-1 bg-amber-500 transition-all duration-500
@@ -186,7 +179,6 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
                     `}
                     />
 
-                    {/* Active Indicator */}
                     {isActive && (
                       <motion.span
                         layoutId="activeIndicator"
@@ -203,14 +195,13 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
               })}
             </nav>
 
-            {/* Social Icons */}
             <motion.div
               className="flex flex-col gap-4 pt-8 border-t border-white/10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              <p className="text-sm uppercase tracking-wider text-white font-semibold mb-2">
+              <p className="text-sm uppercase tracking-wider text-gray-400 font-semibold mb-2">
                 Connect With Me
               </p>
               <div className="flex gap-4">
@@ -231,7 +222,6 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
               </div>
             </motion.div>
 
-            {/* Decorative Element */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
           </motion.div>
         </>
