@@ -52,7 +52,7 @@ export default function Hero({
 
       {showText && (
         <div className="relative z-10 w-full px-6 sm:px-8 lg:px-12 xl:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-400 mx-auto">
             <motion.div
               className="text-left"
               initial={{ opacity: 0, x: -50 }}
@@ -120,7 +120,7 @@ export default function Hero({
                   {buttontext} →
                 </motion.span>
 
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500/0 via-amber-500/30 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 rounded-full bg-linear-to-r from-amber-500/0 via-amber-500/30 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
 
               <motion.div

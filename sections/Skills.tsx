@@ -10,12 +10,10 @@ export default function Skills() {
       id="skills"
       className="relative w-full min-h-screen bg-linear-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#1a1a1a] text-white py-20 sm:py-24 lg:py-32 overflow-hidden"
     >
-      {/* Decorative Background */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
 
       <div className="relative w-full px-6 sm:px-8 lg:px-12 xl:px-16 max-w-350 mx-auto">
-        {/* Header */}
         <motion.div
           className="mb-16 lg:mb-20"
           initial={{ opacity: 0, y: -20 }}
@@ -30,14 +28,13 @@ export default function Skills() {
             </span>
           </div>
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tight mb-4">
-            Skills & Tools
+            Skills & Technologies
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 max-w-2xl">
             Technologies I work with to build modern, scalable applications
           </p>
         </motion.div>
 
-        {/* Frontend Skills */}
         <motion.div
           className="mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +55,6 @@ export default function Skills() {
           </div>
         </motion.div>
 
-        {/* Backend Skills */}
         <motion.div
           className="mb-16"
           initial={{ opacity: 0, y: 20 }}
