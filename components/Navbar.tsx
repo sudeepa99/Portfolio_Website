@@ -130,7 +130,7 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
             animate="visible"
             exit="exit"
             variants={menuVariants}
-            className="fixed top-0 right-0 h-full bg-gradient-to-br from-black via-gray-900 to-black w-full sm:w-[450px] lg:w-[500px] z-50 flex flex-col p-8 sm:p-12 text-white overflow-y-auto"
+            className="fixed top-0 right-0 h-full bg-linear-to-br from-black via-gray-900 to-black w-full sm:w-112.5 lg:w-125 z-50 flex flex-col p-8 sm:p-12 text-white overflow-y-auto"
           >
             {/* Close Button */}
             <div className="flex justify-end mb-16">
@@ -162,7 +162,7 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
                     className="group relative text-left py-4 overflow-hidden"
                   >
                     {/* Hover Background */}
-                    <span className="absolute inset-0 bg-white/5 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out rounded-lg" />
+                    <span className="absolute inset-0 bg-white/5 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out rounded-lg" />
 
                     {/* Link Text */}
                     <span

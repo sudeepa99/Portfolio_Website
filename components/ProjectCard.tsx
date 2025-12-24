@@ -2,6 +2,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { Project } from "@/types/project.types";
 
 interface ProjectCardProps {
   project: Project;
@@ -36,7 +37,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         hover:shadow-2xl hover:shadow-amber-500/20
       `}
     >
-      {/* Image */}
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src={project.image}
@@ -46,13 +46,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
       </div>
 
-      {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
-        {/* Tags */}
         {project.tags && (
           <motion.div
             className="flex flex-wrap gap-2 mb-4"
@@ -71,12 +68,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </motion.div>
         )}
 
-        {/* Title */}
         <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 transform transition-transform duration-500 group-hover:translate-x-2">
           {project.name}
         </h3>
 
-        {/* Bottom Row - Year & Icons */}
         <div className="flex items-center justify-between">
           {project.year && (
             <span className="text-sm text-gray-400 font-medium">
@@ -84,7 +79,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </span>
           )}
 
-          {/* Action Icons */}
           <div className="flex items-center gap-3">
             <motion.div
               className="p-2 rounded-full bg-white/10 backdrop-blur-sm"
@@ -114,8 +108,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </div>
 
-      {/* Corner Accent */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl" />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-br from-amber-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl" />
     </motion.div>
   );
 };

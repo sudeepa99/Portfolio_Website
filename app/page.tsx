@@ -4,6 +4,7 @@ import AboutMe from "@/sections/AboutMe";
 import Contact from "@/sections/Contact";
 import Hero from "@/sections/Hero";
 import Projects from "@/sections/Projects";
+import Skills from "@/sections/Skills";
 import { useState } from "react";
 
 export default function Home() {
@@ -18,13 +19,14 @@ export default function Home() {
         showText={showHeroText}
       />
       <AboutMe
-        firstname="Hello Iam Sudeepa"
+        firstname="Hello I'm Sudeepa"
         fullname="Sudeepa Nisal"
         description="A passionate software engineering enthusiasts focused on building performant, user-centric web applications."
         caption="Actually this is not me"
         statuename="Micahealangelo's David"
       />
       <Projects />
+      <Skills />
       <Contact />
     </>
   );

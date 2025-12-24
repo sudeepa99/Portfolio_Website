@@ -5,8 +5,8 @@ const interests = [
   "UI DESIGN",
   "FRONTEND DEVELOPMENT",
   "BACKEND DEVELOPMENT",
+  "API INTEGRATION",
   "MACHINE LEARNING",
-  "WEBFLOW DEVELOPMENT",
   "DIGITAL SOLUTIONS",
 ];
 
@@ -34,7 +34,7 @@ export default function Contact() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/70 to-black/80" />
       </div>
 
       <div className="hidden lg:block absolute left-6 xl:left-12 top-3/4 -translate-y-1/2 z-10">
@@ -45,7 +45,7 @@ export default function Contact() {
           <div className="text-[140px] xl:text-[200px] tracking-[-0.09em] opacity-90">
             {"LET'S"}
           </div>
-          <div className="text-[130px] xl:text-[190px] tracking-[-0.10em] opacity-90">
+          <div className="text-[130px] xl:text-[190px] -tracking-widest opacity-90">
             CONNECT
           </div>
         </h2>
@@ -83,7 +83,7 @@ export default function Contact() {
             className="group relative px-8 sm:px-10 py-3 sm:py-4 bg-white text-black rounded-full uppercase text-sm sm:text-base font-bold tracking-wide hover:bg-black hover:text-white border-2 border-white transition-all duration-300 transform hover:scale-105 shadow-2xl"
           >
             <span className="relative z-10">Contact Me</span>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-full bg-linear-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
         </div>
 

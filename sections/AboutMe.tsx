@@ -21,12 +21,12 @@ export default function AboutMe({
   return (
     <section
       id="about"
-      className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#1a1a1a] text-white overflow-hidden py-20"
+      className="relative w-full min-h-screen flex items-center bg-linear-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#1a1a1a] text-white overflow-hidden py-20"
     >
       <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-500/3 rounded-full blur-3xl" />
 
-      <div className="flex flex-col lg:flex-row w-full px-6 sm:px-8 lg:px-12 xl:px-16 items-center justify-between gap-16 lg:gap-20 max-w-[1600px] mx-auto">
+      <div className="flex flex-col lg:flex-row w-full px-6 sm:px-8 lg:px-12 xl:px-16 items-center justify-between gap-16 lg:gap-20 max-w-400 mx-auto">
         <motion.div
           className="w-full lg:w-1/2 z-10 space-y-8"
           initial={{ opacity: 0, x: -50 }}
@@ -108,14 +108,12 @@ export default function AboutMe({
         </motion.div>
 
         <motion.div
-          className="w-full lg:w-1/2 h-[500px] sm:h-[600px] lg:h-[700px] relative"
+          className="w-full lg:w-1/2 h-125 sm:h-150 lg:h-175 relative"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="absolute inset-0 bg-gradient-radial from-amber-500/10 via-transparent to-transparent blur-2xl" />
-
           <div className="relative w-full h-full flex items-center justify-center">
             <ThreeDModel modelPath="/models/head_of_david_but_with_hay.glb" />
           </div>
