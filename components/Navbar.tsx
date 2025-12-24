@@ -56,7 +56,7 @@ export default function Navbar({ isOpen, onClose }: NavbarProps) {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isOpen]);
+  }, [isOpen, navLinks]);
 
   const overlayVariants = {
     hidden: { opacity: 0 },
